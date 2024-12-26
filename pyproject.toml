@@ -1,0 +1,63 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=64",
+    "wheel"
+]
+
+[project]
+authors = [
+    {email = "yudong9912@gmail.com", name = "Linpg Foundation"}
+]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython"
+]
+description = "Python APIs for Bootstrap Icons."
+name = "bsicons"
+readme = "README.md"
+requires-python = ">=3.11"
+version = "25.1"
+
+[project.entry-points.pyinstaller40]
+hook-dirs = "bsicons.__pyinstaller:get_hook_dirs"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/LinpgFoundation/bootstrap-icons-api/issues"
+"Homepage" = "https://github.com/LinpgFoundation/bootstrap-icons-api"
+
+[tool.black]
+target-version = ['py313']
+
+[tool.linpgtoolbox]
+includes = [
+    "LICENSE",
+    "README.md",
+    "icons/icons"
+]
+
+[tool.linpgtoolbox.options]
+include_pyinstaller = true
+
+[tool.mypy]
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+python_version = "3.13"
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+
+[tool.setuptools.package-data]
+"*" = ["*"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.tomlsort]
+all = true
+in_place = true
+spaces_indent_inline_array = 4
